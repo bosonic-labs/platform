@@ -1,0 +1,24 @@
+{
+  "name": "bosonic-platform",
+  "version": "0.0.0",
+  "description": "platform ========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bosonic/platform.git"
+  },
+  "author": "Raphaël Rougeron <goldoraf@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bosonic/platform/issues"
+  },
+  "homepage": "https://github.com/bosonic/platform",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-concat": "^0.5.0"
+  }
+}
