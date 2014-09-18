@@ -8,8 +8,9 @@ module.exports = function(grunt) {
       polyfills: {
         src: [
           'lib/document-register-element/build/document-register-element.max.js',
-          'src/customEvent.js',
-          'src/shadowDOM.js'
+          'src/CustomEvent.js',
+          'src/DOMTokenList.js',
+          'src/ShadowDOM.js'
         ],
         dest: 'dist/bosonic-platform.js'
       }
