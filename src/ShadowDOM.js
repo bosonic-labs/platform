@@ -1,7 +1,8 @@
 if (HTMLElement.prototype.createShadowRoot) {
-    console.log('native shadowDOM');
+    
 } else if (HTMLElement.prototype.webkitCreateShadowRoot && !HTMLElement.prototype.createShadowRoot) {
-    console.log('prefixed shadowDOM');
+    // ShadowCSS support is flaky in browsers with ShadowDOM preliminary impls.
+    // We'd better override native shadow DOM in this case...
     Object.defineProperties(Element.prototype, {
         shadowRoot: {
             get: function() {
@@ -15,7 +16,6 @@ if (HTMLElement.prototype.createShadowRoot) {
         }
     });
 } else {
-    console.log('faked shadowDOM');
     function ShadowRoot(host) {
         this.host = host;
     }
