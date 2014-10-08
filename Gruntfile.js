@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     concat: {
       polyfills: {
         src: [
+          'src/bootstrap.js',
           'lib/document-register-element/build/document-register-element.max.js',
           'src/CustomEvent.js',
           'src/DOMTokenList.js',

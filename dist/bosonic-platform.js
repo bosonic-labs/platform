@@ -1,3 +1,8 @@
+if (!window.Platform) {
+    window.Platform = {
+        name: 'bosonic'
+    };
+}
 /*!
 Copyright (C) 2014 by WebReflection
 
@@ -580,9 +585,11 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 if (HTMLElement.prototype.createShadowRoot) {
-    console.log('native shadowDOM');
+    Platform.shadowDOM = 'native';
 } else if (HTMLElement.prototype.webkitCreateShadowRoot && !HTMLElement.prototype.createShadowRoot) {
-    console.log('prefixed shadowDOM');
+    // ShadowCSS support is flaky in browsers with ShadowDOM preliminary impls.
+    // We'd better override native shadow DOM in this case...
+    Platform.shadowDOM = 'prefixed';
     Object.defineProperties(Element.prototype, {
         shadowRoot: {
             get: function() {
@@ -596,7 +603,7 @@ if (HTMLElement.prototype.createShadowRoot) {
         }
     });
 } else {
-    console.log('faked shadowDOM');
+    Platform.shadowDOM = 'polyfill';
     function ShadowRoot(host) {
         this.host = host;
     }
